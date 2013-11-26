@@ -115,6 +115,9 @@ function islandora_file_storage_islandora_file_storageCModel_islandora_view_obje
   return array('' => $output);
 }
 
+/**
+ * Implements hook_islandora_CMODEL_PID_derivative().
+ */
 function islandora_file_storage_islandora_file_storageCModel_islandora_derivative() {
   return array(
     array(
