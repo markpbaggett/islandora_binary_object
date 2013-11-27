@@ -47,10 +47,6 @@ function islandora_file_storage_create_thumbnail(AbstractObject $object, $force 
       );
     }
     catch (exception $e) {
-      $variables = array(
-        '@ret' => $e->getTraceAsString(),
-      );
-      watchdog('islandora_file_storage', 'File storage failed to add the thumbnail datastream.<br/>Error: @ret', $variables, WATCHDOG_ERROR);
       $message = $e->getMessage();
       return array(
         'success' => FALSE,
