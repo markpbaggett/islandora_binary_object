@@ -25,7 +25,7 @@ function islandora_file_storage_islandora_required_objects(IslandoraTuque $conne
   $module_path = drupal_get_path('module', 'islandora_file_storage');
   $islandora_path = drupal_get_path('module', 'islandora');
   // File Storage Content Model.
-  $file_storage_content_model = $connection->repository->constructObject('islandora:file_storageCModel');
+  $file_storage_content_model = $connection->repository->constructObject('islandora:fileStorageCModel');
   $file_storage_content_model->owner = 'fedoraAdmin';
   $file_storage_content_model->label = 'Islandora File Storage Content Model';
   $file_storage_content_model->models = 'fedora-system:ContentModel-3.0';
@@ -70,7 +70,7 @@ function islandora_file_storage_islandora_required_objects(IslandoraTuque $conne
 function islandora_file_storage_islandora_content_model_forms_form_associations() {
   return array(
     'islandora_file_storage_mods_form' => array(
-      'content_model' => 'islandora:file_storageCModel',
+      'content_model' => 'islandora:fileStorageCModel',
       'form_name' => 'File Storage MODS form',
       'dsid' => 'MODS',
       'title_field' => array('titleInfo', 'title'),
@@ -95,7 +95,7 @@ function islandora_file_storage_islandora_xml_form_builder_forms() {
 /**
  * Implements hook_islandora_ingest_steps().
  */
-function islandora_file_storage_islandora_file_storageCModel_islandora_ingest_steps() {
+function islandora_file_storage_islandora_fileStorageCModel_islandora_ingest_steps() {
   return array(
     'islandora_file_storage' => array(
       'weight' => 10,
@@ -110,15 +110,23 @@ function islandora_file_storage_islandora_file_storageCModel_islandora_ingest_st
 /**
  * Implements hook_CMODEL_PID_islandora_view_object().
  */
-function islandora_file_storage_islandora_file_storageCModel_islandora_view_object(AbstractObject $object) {
-  $output = theme('islandora_file_storage', array('islandora_object' => $object));
-  return array('' => $output);
+function islandora_file_storage_islandora_fileStorageCModel_islandora_view_object(AbstractObject $object) {
+  return array(
+    // XXX: Because islandora_as_renderable_array isn't the best we are going to
+    // wrap this in an array.
+    '' => array(
+      array(
+        '#theme' => 'islandora_file_storage',
+        '#islandora_object' => $object,
+      ),
+    ),
+  );
 }
 
 /**
  * Implements hook_islandora_CMODEL_PID_derivative().
  */
-function islandora_file_storage_islandora_file_storageCModel_islandora_derivative() {
+function islandora_file_storage_islandora_fileStorageCModel_islandora_derivative() {
   return array(
     array(
       'source_dsid' => 'OBJ',

@@ -9,7 +9,6 @@
  */
 function islandora_file_storage_preprocess_islandora_file_storage(array &$variables) {
   module_load_include('inc', 'islandora', 'includes/metadata');
-  module_load_include('inc', 'islandora', 'includes/utilities');
   drupal_add_js('misc/form.js');
   drupal_add_js('misc/collapse.js');
 
@@ -21,7 +20,7 @@ function islandora_file_storage_preprocess_islandora_file_storage(array &$variab
 
     $variables['islandora_file_storage_info'] = t('This is a downloadable object of filetype @extension and size @size.', array(
       '@extension' => $extension,
-      '@size' => islandora_convert_bytes_to_human_readable($islandora_object['OBJ']->size),
+      '@size' => format_size($islandora_object['OBJ']->size),
     ));
 
     $display['download'] = array(
