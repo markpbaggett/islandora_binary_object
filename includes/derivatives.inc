@@ -21,7 +21,7 @@
 function islandora_file_storage_create_thumbnail(AbstractObject $object, $force = FALSE) {
   if ($force || !isset($object['TN'])) {
     try {
-      $islandora_path = drupal_get_path('module', 'islandora');
+      $module_path = drupal_get_path('module', 'islandora_file_storage');
       $ingest = !isset($object['TN']);
       if ($ingest) {
         $ds = $object->constructDatastream('TN', 'M');
@@ -31,7 +31,7 @@ function islandora_file_storage_create_thumbnail(AbstractObject $object, $force 
         $ds = $object['TN'];
       }
       $ds->mimetype = 'image/png';
-      $ds->setContentFromFile("$islandora_path/images/folder.png", FALSE);
+      $ds->setContentFromFile("$module_path/images/file_storage_thumb.png", FALSE);
       if ($ingest) {
         $object->ingestDatastream($ds);
       }
