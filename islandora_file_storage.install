@@ -61,3 +61,12 @@ function islandora_file_storage_schema() {
   );
   return $schema;
 }
+
+/**
+ * Implements hook_update_N().
+ *
+ * Installs the database schema for thumbnail mappings.
+ */
+function islandora_file_storage_update_7100() {
+  drupal_install_schema('islandora_file_storage');
+}
