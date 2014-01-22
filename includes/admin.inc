@@ -155,7 +155,7 @@ function islandora_file_storage_admin($form, &$form_state) {
     );
     $form[$fieldset_name]['wrapper']['remove_association'] = array(
       '#type' => 'submit',
-      '#name' => 'islandora-file-storage-delete-association',
+      '#name' => "$fieldset_name-delete-association",
       '#value' => t('Delete Association'),
       '#attributes' => array(
         'class' => array('islandora-file-storage-delete'),
