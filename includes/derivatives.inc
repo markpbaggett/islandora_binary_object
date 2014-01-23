@@ -20,6 +20,7 @@
  */
 function islandora_file_storage_create_thumbnail(AbstractObject $object, $force = FALSE) {
   if ($force || !isset($object['TN'])) {
+    module_load_include('inc', 'islandora_file_storage', 'includes/db');
     try {
       $module_path = drupal_get_path('module', 'islandora_file_storage');
       $ingest = !isset($object['TN']);
@@ -30,8 +31,18 @@ function islandora_file_storage_create_thumbnail(AbstractObject $object, $force 
       else {
         $ds = $object['TN'];
       }
-      $ds->mimetype = 'image/png';
-      $ds->setContentFromFile("$module_path/images/file_storage_thumb.png", FALSE);
+      // Go see if we have an association that exists for this MIME type and
+      // if we do use that. If not default back to the generic image.
+      if (islandora_file_storage_check_mime_type($object['OBJ']->mimetype)) {
+        $fid_to_load = islandora_file_storage_retrieve_file_id_by_association($object['OBJ']->mimetype);
+        $file = file_load($fid_to_load);
+        $ds->mimetype = $file->filemime;
+        $ds->setContentFromFile($file->uri, FALSE);
+      }
+      else {
+        $ds->mimetype = 'image/png';
+        $ds->setContentFromFile("$module_path/images/file_storage_thumb.png", FALSE);
+      }
       if ($ingest) {
         $object->ingestDatastream($ds);
       }
