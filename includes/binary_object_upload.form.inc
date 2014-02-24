@@ -16,7 +16,7 @@
  * @return array
  *   The Drupal form definition.
  */
-function islandora_file_storage_upload_form(array $form, array &$form_state) {
+function islandora_binary_object_upload_form(array $form, array &$form_state) {
   $upload_size = min((int) ini_get('post_max_size'), (int) ini_get('upload_max_filesize'));
   $thumbnail_extensions = array('gif jpg png jpeg');
 
@@ -72,7 +72,7 @@ function islandora_file_storage_upload_form(array $form, array &$form_state) {
  * @param array $form_state
  *   The Drupal form state.
  */
-function islandora_file_storage_upload_form_validate(array $form, array &$form_state) {
+function islandora_binary_object_upload_form_validate(array $form, array &$form_state) {
   if ($form_state['values']['supply_thumbnail'] &&
     !$form_state['values']['thumbnail_file']) {
     form_set_error('thumbnail_file', t('If you select "Upload Thumbnail" please supply a file.'));
@@ -89,7 +89,7 @@ function islandora_file_storage_upload_form_validate(array $form, array &$form_s
  * @param array $form_state
  *   The Drupal form state.
  */
-function islandora_file_storage_upload_form_submit(array $form, array &$form_state) {
+function islandora_binary_object_upload_form_submit(array $form, array &$form_state) {
   module_load_include('inc', 'islandora', 'includes/utilities');
   $object = islandora_ingest_form_get_object($form_state);
 

@@ -18,7 +18,7 @@
  *
  * @see hook_islandora_derivative()
  */
-function islandora_file_storage_create_thumbnail(AbstractObject $object, $force = FALSE) {
+function islandora_binary_object_create_thumbnail(AbstractObject $object, $force = FALSE) {
   if ($force || !isset($object['TN'])) {
     try {
       $module_path = drupal_get_path('module', 'islandora_file_storage');
