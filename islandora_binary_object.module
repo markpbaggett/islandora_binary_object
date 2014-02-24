@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Handles the creation and display of file_storage Islandora objects.
+ * Handles the creation and display of binary_object Islandora objects.
  */
 
 /**
@@ -9,7 +9,7 @@
  */
 function islandora_binary_object_theme($existing, $type, $theme, $path) {
   return array(
-    'islandora_file_storage' => array(
+    'islandora_binary_object' => array(
       'file' => 'theme/theme.inc',
       'template' => 'theme/islandora-binary-object',
       'pattern' => 'islandora_binary_object__',
@@ -22,12 +22,12 @@ function islandora_binary_object_theme($existing, $type, $theme, $path) {
  * Implements hook_islandora_required_objects().
  */
 function islandora_binary_object_islandora_required_objects(IslandoraTuque $connection) {
-  $module_path = drupal_get_path('module', 'islandora_file_storage');
+  $module_path = drupal_get_path('module', 'islandora_binary_object');
   $islandora_path = drupal_get_path('module', 'islandora');
   // File Storage Content Model.
   $binary_object_content_model = $connection->repository->constructObject('islandora:binarObjectCModel');
   $binary_object_content_model->owner = 'fedoraAdmin';
-  $binary_object_content_model->label = 'Islandora File Storage Content Model';
+  $binary_object_content_model->label = 'Islandora Binary Object Content Model';
   $binary_object_content_model->models = 'fedora-system:ContentModel-3.0';
   // DS-COMPOSITE-MODEL Datastream.
   $datastream = $binary_object_content_model->constructDatastream('DS-COMPOSITE-MODEL', 'X');
@@ -38,7 +38,7 @@ function islandora_binary_object_islandora_required_objects(IslandoraTuque $conn
   // Image Collection.
   $binary_object_collection = $connection->repository->constructObject('islandora:binary_object_collection');
   $binary_object_collection->owner = 'fedoraAdmin';
-  $binary_object_collection->label = 'File Storage Collection';
+  $binary_object_collection->label = 'Binary Object Collection';
   $binary_object_collection->models = 'islandora:collectionCModel';
   $binary_object_collection->relationships->add(FEDORA_RELS_EXT_URI, 'isMemberOfCollection', 'islandora:root');
   // Collection Policy Datastream.
@@ -54,7 +54,7 @@ function islandora_binary_object_islandora_required_objects(IslandoraTuque $conn
   $datastream->setContentFromFile("$islandora_path/images/folder.png", FALSE);
   $binary_object_collection->ingestDatastream($datastream);
   return array(
-    'islandora_file_storage' => array(
+    'islandora_binary_object' => array(
       'title' => 'Islandora File Storage',
       'objects' => array(
         $binary_object_content_model,
@@ -70,8 +70,8 @@ function islandora_binary_object_islandora_required_objects(IslandoraTuque $conn
 function islandora_binary_object_islandora_content_model_forms_form_associations() {
   return array(
     'islandora_binary_object_mods_form' => array(
-      'content_model' => 'islandora:fileStorageCModel',
-      'form_name' => 'File Storage MODS form',
+      'content_model' => 'islandora:binaryObjectCModel',
+      'form_name' => 'Binary Object MODS form',
       'dsid' => 'MODS',
       'title_field' => array('titleInfo', 'title'),
       'transform' => 'mods_to_dc.xsl',
@@ -84,9 +84,9 @@ function islandora_binary_object_islandora_content_model_forms_form_associations
  * Implements hook_islandora_xml_form_builder_forms().
  */
 function islandora_binary_object_islandora_xml_form_builder_forms() {
-  $module_path = drupal_get_path('module', 'islandora_file_storage');
+  $module_path = drupal_get_path('module', 'islandora_binary_object');
   return array(
-    'File Storage MODS form' => array(
+    'Binary Object MODS form' => array(
       'form_file' => "$module_path/xml/islandora_binary_object_form_mods.xml",
     ),
   );
@@ -95,13 +95,13 @@ function islandora_binary_object_islandora_xml_form_builder_forms() {
 /**
  * Implements hook_islandora_ingest_steps().
  */
-function islandora_binary_object_islandora_fileStorageCModel_islandora_ingest_steps() {
+function islandora_binary_object_islandora_binaryObjectCModel_islandora_ingest_steps() {
   return array(
-    'islandora_file_storage' => array(
+    'islandora_binary_object' => array(
       'weight' => 10,
       'type' => 'form',
       'form_id' => 'islandora_binary_object_upload_form',
-      'module' => 'islandora_file_storage',
+      'module' => 'islandora_binary_object',
       'file' => 'includes/binary_object_upload.form.inc',
     ),
   );
@@ -110,13 +110,13 @@ function islandora_binary_object_islandora_fileStorageCModel_islandora_ingest_st
 /**
  * Implements hook_CMODEL_PID_islandora_view_object().
  */
-function islandora_binary_object_islandora_fileStorageCModel_islandora_view_object(AbstractObject $object) {
+function islandora_binary_object_islandora_binaryObjectCModel_islandora_view_object(AbstractObject $object) {
   return array(
     // XXX: Because islandora_as_renderable_array isn't the best we are going to
     // wrap this in an array.
     '' => array(
       array(
-        '#theme' => 'islandora_file_storage',
+        '#theme' => 'islandora_binary_object',
         '#islandora_object' => $object,
       ),
     ),
@@ -126,7 +126,7 @@ function islandora_binary_object_islandora_fileStorageCModel_islandora_view_obje
 /**
  * Implements hook_islandora_CMODEL_PID_derivative().
  */
-function islandora_binary_object_islandora_fileStorageCModel_islandora_derivative() {
+function islandora_binary_object_islandora_binaryObjectCModel_islandora_derivative() {
   return array(
     array(
       'source_dsid' => 'OBJ',
@@ -135,7 +135,7 @@ function islandora_binary_object_islandora_fileStorageCModel_islandora_derivativ
       'function' => array(
         'islandora_binary_object_create_thumbnail',
       ),
-      'file' => drupal_get_path('module', 'islandora_file_storage') . '/includes/derivatives.inc',
+      'file' => drupal_get_path('module', 'islandora_binary_object') . '/includes/derivatives.inc',
     ),
   );
 }

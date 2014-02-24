@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Handles the display of file storage objects.
+ * Handles the display of binary objects.
  */
 
 /**
