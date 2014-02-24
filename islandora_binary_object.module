@@ -25,7 +25,7 @@ function islandora_binary_object_islandora_required_objects(IslandoraTuque $conn
   $module_path = drupal_get_path('module', 'islandora_binary_object');
   $islandora_path = drupal_get_path('module', 'islandora');
   // File Storage Content Model.
-  $binary_object_content_model = $connection->repository->constructObject('islandora:binarObjectCModel');
+  $binary_object_content_model = $connection->repository->constructObject('islandora:binaryObjectCModel');
   $binary_object_content_model->owner = 'fedoraAdmin';
   $binary_object_content_model->label = 'Islandora Binary Object Content Model';
   $binary_object_content_model->models = 'fedora-system:ContentModel-3.0';
@@ -55,7 +55,7 @@ function islandora_binary_object_islandora_required_objects(IslandoraTuque $conn
   $binary_object_collection->ingestDatastream($datastream);
   return array(
     'islandora_binary_object' => array(
-      'title' => 'Islandora File Storage',
+      'title' => 'Islandora Binary Object',
       'objects' => array(
         $binary_object_content_model,
         $binary_object_collection,
