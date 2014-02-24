@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="islandora_file_upload" default="build">
+<project name="islandora_binary_storage" default="build">
     <target name="build" depends="clean,prepare,lint,phploc,code_sniff,phpcpd,pdepend,doxygen,phpcb,test" />
 
     <target name="clean" description="Cleanup build artifacts">
