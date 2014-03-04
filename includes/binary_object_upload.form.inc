@@ -65,7 +65,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state) {
 }
 
 /**
- * Validation for file storage upload form.
+ * Validation for binary object upload form.
  *
  * @param array $form
  *   The Drupal form.
