@@ -80,7 +80,7 @@
 
     <target name="test">
         <exec executable="drush">
-            <arg line="test-run --uri=http://localhost --xml=${basedir}/build/test 'Islandora File Storage'"/>
+            <arg line="test-run --uri=http://localhost --xml=${basedir}/build/test 'Islandora Binary Object'"/>
         </exec>
     </target>
 

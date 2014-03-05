@@ -1,11 +1,11 @@
-.islandora-file-storage-admin .form-item {
+.islandora-binary-object-admin .form-item {
     display: inline;
 }
 
-.islandora-file-storage-admin .form-text {
+.islandora-binary-object-admin .form-text {
     max-width: 25%;
 }
 
-.islandora-file-storage-admin .islandora-file-storage-delete {
+.islandora-binary-object-admin .islandora-binary-object-delete {
     display: block;
 }

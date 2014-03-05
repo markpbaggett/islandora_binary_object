@@ -80,7 +80,7 @@ function islandora_binary_object_admin($form, &$form_state) {
       '#collapsible' => TRUE,
       '#group' => 'thumbnail_associations',
       'wrapper' => array(
-        '#prefix' => '<div id="' . $wrapper_name . '" class="islandora-file-storage-admin">',
+        '#prefix' => '<div id="' . $wrapper_name . '" class="islandora-binary-object-admin">',
         '#suffix' => '</div>',
       ),
     );
@@ -158,7 +158,7 @@ function islandora_binary_object_admin($form, &$form_state) {
       '#name' => "$fieldset_name-delete-association",
       '#value' => t('Delete Association'),
       '#attributes' => array(
-        'class' => array('islandora-file-storage-delete'),
+        'class' => array('islandora-binary-object-delete'),
       ),
     );
   }
@@ -179,7 +179,7 @@ function islandora_binary_object_admin($form, &$form_state) {
   );
   $form['submit'] = array(
     '#type' => 'submit',
-    '#name' => 'islandora-file-storage-submit',
+    '#name' => 'islandora-binary-object-submit',
     '#value' => t('Submit'),
   );
   // Store any existing AJAX MIME types back into the form state to keep
@@ -270,7 +270,7 @@ function islandora_binary_object_admin_validate($form, &$form_state) {
 function islandora_binary_object_admin_submit($form, &$form_state) {
   // See if the user has uploaded a new file and if so create a new entry in
   // the thumbnails table for it.
-  if ($form_state['triggering_element']['#name'] == 'islandora-file-storage-submit') {
+  if ($form_state['triggering_element']['#name'] == 'islandora-binary-object-submit') {
     if ($form_state['values']['upload_fieldset']['upload'] !== 0) {
       module_load_include('inc', 'islandora_binary_object', 'includes/db');
       $file = file_load($form_state['values']['upload_fieldset']['upload']);
@@ -316,7 +316,7 @@ function islandora_binary_object_admin_submit($form, &$form_state) {
     $table_element = $form_state['triggering_element']['#parents'][0];
     $association_id = $form[$table_element]['association_id']['#value'];
     $file_id = $form[$table_element]['fid']['#value'];
-    $form_state['redirect'] = "admin/islandora/file-storage/delete-association/$association_id/$file_id";
+    $form_state['redirect'] = "admin/islandora/binary-object/delete-association/$association_id/$file_id";
   }
 }
 
@@ -356,7 +356,7 @@ function islandora_binary_object_delete_association_form($form, &$form_state, $a
   $form_state['fid'] = $file_id;
   return confirm_form($form,
     t('Are you sure you want to delete the association?'),
-    "admin/islandora/file-storage",
+    "admin/islandora/binary-object",
     t('This will delete the association and the thumbnail from the file system.'),
     t('Delete'),
     t('Cancel')
