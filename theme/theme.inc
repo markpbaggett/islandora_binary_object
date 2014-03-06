@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * Handles the display of file storage objects.
+ * Handles the display of binary objects.
  */
 
 /**
  * Implements hook_preprocess_theme().
  */
-function islandora_file_storage_preprocess_islandora_file_storage(array &$variables) {
+function islandora_binary_object_preprocess_islandora_binary_object(array &$variables) {
   module_load_include('inc', 'islandora', 'includes/metadata');
   drupal_add_js('misc/form.js');
   drupal_add_js('misc/collapse.js');
@@ -18,7 +18,7 @@ function islandora_file_storage_preprocess_islandora_file_storage(array &$variab
     $mime_detect = new MimeDetect();
     $extension = $mime_detect->getExtension($islandora_object['OBJ']->mimetype);
 
-    $variables['islandora_file_storage_info'] = t('This is a downloadable object of filetype @extension and size @size.', array(
+    $variables['islandora_binary_object_info'] = t('This is a downloadable object of filetype @extension and size @size.', array(
       '@extension' => $extension,
       '@size' => format_size($islandora_object['OBJ']->size),
     ));
@@ -28,7 +28,7 @@ function islandora_file_storage_preprocess_islandora_file_storage(array &$variab
       '#title' => t('Download'),
       '#markup' => l(t('@label', array('@label' => $islandora_object['OBJ']->label)), "islandora/object/$islandora_object->id/datastream/OBJ/download"),
     );
-    $variables['islandora_file_storage_download'] = drupal_render($display['download']);
+    $variables['islandora_binary_object_download'] = drupal_render($display['download']);
   }
 
   // Thumbnail.

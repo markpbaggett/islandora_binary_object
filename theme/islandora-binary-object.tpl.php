@@ -2,37 +2,37 @@
 
 /**
  * @file
- * This is the template file for the object page for file storage objects.
+ * This is the template file for the object page for binary objects.
  *
  * Available variables:
  * - $islandora_object: The Islandora object rendered in this template file.
- * - $islandora_file_storage_info: Information about the file storage object.
- * - $islandora_thumbnail_img: The thumbnail image of the file storage object.
+ * - $islandora_binary_object_info: Information about the binary object.
+ * - $islandora_thumbnail_img: The thumbnail image of the binary object.
  * - $islandora_File_storage_download: Download link for the object.
  * - $description: Defined metadata descripton for the object.
  * - $parent_collections: Parent collections of the object if applicable.
- * - $metadata: Rendered metadata display for the file storage object.
+ * - $metadata: Rendered metadata display for the binary object.
  *
- * @see template_preprocess_islandora_file_storage()
- * @see theme_islandora_file_storage()
+ * @see template_preprocess_islandora_binary_object()
+ * @see theme_islandora_binary_object()
  */
 ?>
 
-<div class="islandora-file-storage-object islandora">
-  <div class="islandora-file-storage-content-wrapper clearfix">
-    <?php if (isset($islandora_file_storage_info)): ?>
-      <?php print $islandora_file_storage_info; ?>
+<div class="islandora-binary-object-object islandora">
+  <div class="islandora-binary-object-content-wrapper clearfix">
+    <?php if (isset($islandora_binary_object_info)): ?>
+      <?php print $islandora_binary_object_info; ?>
     <?php endif; ?>
     <?php if (isset($islandora_thumbnail_img)): ?>
-      <div class="islandora-file-storage-content">
+      <div class="islandora-binary-object-content">
         <?php print $islandora_thumbnail_img; ?>
       </div>
     <?php endif; ?>
-    <?php if (isset($islandora_file_storage_download)): ?>
-      <?php print $islandora_file_storage_download; ?>
+    <?php if (isset($islandora_binary_object_download)): ?>
+      <?php print $islandora_binary_object_download; ?>
     <?php endif; ?>
   </div>
-  <div class="islandora-file-storage-metadata">
+  <div class="islandora-binary-object-metadata">
     <?php print $description; ?>
     <?php if ($parent_collections): ?>
       <div>
