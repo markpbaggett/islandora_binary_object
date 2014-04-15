@@ -9,7 +9,7 @@
  */
 function islandora_binary_object_menu() {
   $items = array();
-  $items['admin/islandora/binary-object-storage'] = array(
+  $items['admin/islandora/tools/binary-object-storage'] = array(
     'title' => 'Binary Object Collection',
     'description' => 'Configure settings for Islandora Binary Object',
     'access arguments' => array('administer site configuration'),
@@ -17,7 +17,7 @@ function islandora_binary_object_menu() {
     'page arguments' => array('islandora_binary_object_admin'),
     'file' => 'includes/admin.inc',
   );
-  $items['admin/islandora/binary-object-storage/delete-association/%'] = array(
+  $items['admin/islandora/tools/binary-object-storage/delete-association/%'] = array(
     'title' => 'Delete Binary Object Association',
     'description' => 'Confirm form for deleting a thumbnail association',
     'access arguments' => array('administer site configuration'),
