@@ -379,5 +379,5 @@ function islandora_binary_object_delete_association_form_submit($form, &$form_st
   $file_name = $file->filename;
   file_delete($file);
   drupal_set_message(t('The association for @filename has been deleted!', array('@filename' => $file_name)));
-  $form_state['redirect'] = "admin/islandora/binary-object-storage";
+  $form_state['redirect'] = "admin/islandora/tools/binary-object-storage";
 }
