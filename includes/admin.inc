@@ -316,7 +316,7 @@ function islandora_binary_object_admin_submit($form, &$form_state) {
     $table_element = $form_state['triggering_element']['#parents'][0];
     $association_id = $form[$table_element]['association_id']['#value'];
     $file_id = $form[$table_element]['fid']['#value'];
-    $form_state['redirect'] = "admin/islandora/tools/binary-object/delete-association/$association_id/$file_id";
+    $form_state['redirect'] = "admin/islandora/tools/binary-object-storage/delete-association/$association_id/$file_id";
   }
 }
 
@@ -356,7 +356,7 @@ function islandora_binary_object_delete_association_form($form, &$form_state, $a
   $form_state['fid'] = $file_id;
   return confirm_form($form,
     t('Are you sure you want to delete the association?'),
-    "admin/islandora/tools/binary-object",
+    "admin/islandora/tools/binary-object-storage",
     t('This will delete the association and the thumbnail from the file system.'),
     t('Delete'),
     t('Cancel')
