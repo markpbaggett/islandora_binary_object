@@ -25,7 +25,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state) {
       '#title' => t('File'),
       '#type' => 'managed_file',
       '#required' => TRUE,
-      '#description' => t('Select a file to upload.<br/>Files must be less than <b>@size MB.</b>', array('@size' => $upload_size)),
+      '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
       '#default_value' => isset($form_state['values']['file']) ? $form_state['values']['file'] : NULL,
       '#upload_location' => 'temporary://',
       '#upload_validators' => array(
@@ -42,7 +42,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state) {
       'thumbnail_file' => array(
         '#title' => t('Thumbnail File'),
         '#type' => 'managed_file',
-        '#description' => t('Select a file to upload.<br/>Files must be less than <b>@size MB.</b><br/>Allowed file types: <b>@ext.</b>', array('@size' => $upload_size, '@ext' => $thumbnail_extensions[0])),
+        '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong><br/>Allowed file types: <strong>@ext.</strong>', array('@size' => $upload_size, '@ext' => $thumbnail_extensions[0])),
         '#default_value' => isset($form_state['values']['thumbnail_file']) ? $form_state['values']['thumbnail_file'] : NULL,
         '#upload_location' => 'temporary://',
         '#upload_validators' => array(
