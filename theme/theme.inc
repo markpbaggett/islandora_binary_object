@@ -7,7 +7,7 @@
 /**
  * Implements hook_preprocess_theme().
  */
-function islandora_binary_object_preprocess_islandora_binary_object(array &$variables) {
+function template_preprocess_islandora_binary_object(array &$variables) {
   module_load_include('inc', 'islandora', 'includes/metadata');
   drupal_add_js('misc/form.js');
   drupal_add_js('misc/collapse.js');
