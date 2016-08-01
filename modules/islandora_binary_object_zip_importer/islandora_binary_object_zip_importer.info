@@ -1,0 +1,7 @@
+name = Islandora Binary Object Zip Importer
+description = "Zip importer for binary objects"
+package = Islandora Tools
+version = 7.x-dev
+core = 7.x
+dependencies[] = islandora_batch
+files[] = includes/importer.inc
