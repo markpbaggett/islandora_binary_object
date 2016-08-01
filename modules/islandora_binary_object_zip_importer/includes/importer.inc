@@ -187,6 +187,7 @@ class BinaryObjectZipBatchImportObject extends ZipBatchImportObject {
    */
   protected function getDatastreams(&$errors = NULL, &$files = NULL) {
     $to_return = parent::getDatastreams($errors, $files);
+    $default_scheme = file_default_scheme() . "://";
 
     // Get DSID and mimetype.
     foreach ($this->source['object_info'] as $datastream => $name) {
@@ -223,6 +224,7 @@ class BinaryObjectZipBatchImportObject extends ZipBatchImportObject {
       $zip = new ZipArchive();
       $zip->open(drupal_realpath($this->source['file']->uri));
       if ($stream = $zip->getStream($name)) {
+        $path = $default_scheme . basename($name);
         $file = file_save_data($stream, "public://" . basename($name));
         fclose($stream);
         $file->filename = $name;
