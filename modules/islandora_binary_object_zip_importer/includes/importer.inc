@@ -166,6 +166,10 @@ class BinaryObjectZipBatchImportObject extends ZipBatchImportObject {
         elseif ($this->isDC($this->getXML())) {
           $dsid = 'DC';
         }
+        // In all other cases, upload as an OBJ.
+        else {
+          $dsid = 'OBJ';
+        }
       }
       // Everything else is the primary datastream.
       else {
