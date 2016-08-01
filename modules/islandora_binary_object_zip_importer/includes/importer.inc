@@ -79,13 +79,55 @@ class BinaryObjectZipBatchImporter extends ZipBatchImporter {
    * @see IslandoraBatchImporterInterface::getBatchInfo()
    */
   public static function getBatchInfo(array &$form_state) {
-    $file = file_load($form_state['values']['file']);
+    // Can be either a path or a file object ID.
+    if (!file_exists($form_state['values']['file'])) {
+      $file = file_load($form_state['values']['file']);
+    }
+    else {
+      $file = $form_state['values']['file'];
+    }
     return array(
       'file' => $file,
       'pid_namespace' => $form_state['values']['namespace'],
       'object_info' => static::getIngestInfo($file),
       'processed_objects' => array(),
     );
+  }
+
+  /**
+   * Helper for getting info from the zip file.
+   *
+   * @param stdClass|string $file
+   *   A file object or path to a zip file.
+   */
+  protected static function getIngestInfo($file) {
+    $zip = new ZipArchive();
+    $path = is_object($file) ? drupal_realpath($file->uri) : $file;
+    if ($error = $zip->open($path) !== TRUE) {
+      drupal_set_message(t('Error opening the provided Zip file. Code: %code', array(
+        '%code' => $error,
+      )));
+      return;
+    }
+
+    $count = $zip->numFiles;
+
+    $info = array();
+    for ($i = 0; $i < $count; $i++) {
+      $name = $zip->getNameIndex($i);
+      $path_info = pathinfo($name);
+
+      $object_key = $path_info['dirname'] . '-_-' . $path_info['filename'];
+      if (strpos($path_info['dirname'], '__MACOSX') === FALSE
+        && isset($path_info['extension'])
+        && $path_info['extension'] != 'DS_Store') {
+        $datastream_key = strtolower($path_info['extension']);
+        $info[$object_key][$datastream_key] = $name;
+      }
+    }
+
+    $zip->close();
+    return $info;
   }
 }
 
@@ -101,7 +143,7 @@ class BinaryObjectZipBatchImportObject extends ZipBatchImportObject {
    */
   public static function getOne(&$info) {
     $key = key($info['object_info']);
-    // @TODO: Ignoring XML for now (is it an object's OBJ or a stub record's 
+    // @TODO: Ignoring XML for now (is it an object's OBJ or a stub record's
     // XML? Should be left up to the user ultimately).
     if (count($info['object_info'][$key]) == 1 && isset($info['object_info'][$key]['xml'])) {
       unset($info['object_info'][$key]);

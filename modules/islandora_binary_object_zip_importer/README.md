@@ -23,7 +23,10 @@ No configuration options currently exist.
 
 ## Troubleshooting/Issues
 
-Having problems or solved a problem? Check out the [Islandora google groups](https://groups.google.com/forum/?hl=en&fromgroups#!forum/islandora) for a solution or contact [discoverygarden](http://support.discoverygarden.ca)
+Having problems or solved a problem? Check out the Islandora google groups for a solution.
+
+* [Islandora google groups](https://groups.google.com/forum/?hl=en&fromgroups#!forum/islandora)
+* [Islandora Dev Group](https://groups.google.com/forum/?hl=en&fromgroups#!forum/islandora-dev)
 
 ## FAQ
 
@@ -43,10 +46,7 @@ This project has been sponsored by:
 
 ## Development
 
-If you would like to contribute to this module, please check out our helpful
-[Documentation for Developers](https://github.com/Islandora/islandora/wiki#wiki-documentation-for-developers)
-info, [Developers](http://islandora.ca/developers) section on Islandora.ca and
-contact [discoverygarden](http://support.discoverygarden.ca).
+If you would like to contribute to this module, please check out [CONTRIBUTING.md](CONTRIBUTING.md). In addition, we have helpful [Documentation for Developers](https://github.com/Islandora/islandora/wiki#wiki-documentation-for-developers) info, as well as our [Developers](http://islandora.ca/developers) section on the [Islandora.ca](http://islandora.ca) site.
 
 ## License
 
