@@ -37,15 +37,23 @@ function islandora_binary_object_zip_importer_drush_command() {
  * Command callback for binary object batch scan preprocess.
  */
 function drush_islandora_binary_object_zip_importer_islandora_binary_object_batch_scan_preprocess() {
+  $file_uri = drush_get_option('scan_target');
+  if (!file_exists($file_uri)) {
+    drush_set_error('islandora_binary_object_zip_importer', 'No file exists at the given path.');
+    return;
+  }
+
   drupal_static_reset('islandora_get_tuque_connection');
   $connection = islandora_get_tuque_connection();
 
   $parent = drush_get_option('parent', variable_get('islandora_repository_pid', 'islandora:root'));
+  module_load_include('inc', 'islandora', 'includes/utilities');
+  $file = islandora_temp_file_entry($file_uri);
 
   // Mimicking the structure/function of the form batch.
   $info_params = array(
     'values' => array(
-      'file' => drush_get_option('scan_target'),
+      'file' => $file,
       'namespace' => drush_get_option('namespace'),
     ),
   );
