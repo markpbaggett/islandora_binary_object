@@ -147,6 +147,7 @@ class BinaryObjectZipBatchImportObject extends ZipBatchImportObject {
   protected function getDatastreams(&$errors = NULL, &$files = NULL) {
     $to_return = parent::getDatastreams($errors, $files);
     $default_scheme = file_default_scheme() . "://";
+    module_load_include('inc', 'islandora', 'includes/utilities');
 
     // Get DSID and mimetype.
     foreach ($this->source['object_info'] as $datastream => $name) {
@@ -184,11 +185,7 @@ class BinaryObjectZipBatchImportObject extends ZipBatchImportObject {
       $zip->open(drupal_realpath($this->source['file']->uri));
       if ($stream = $zip->getStream($name)) {
         $path = $default_scheme . basename($name);
-        $file = file_save_data($stream, "public://" . basename($name));
-        fclose($stream);
-        $file->filename = $name;
-        $file->status &= ~FILE_STATUS_PERMANENT;
-        $file = file_save($file);
+        $file = islandora_temp_file_entry($path, $mimetype);
         $files[] = $file;
 
         $to_return += array(
