@@ -79,7 +79,7 @@ class BinaryObjectZipBatchImporter extends ZipBatchImporter {
    * @see IslandoraBatchImporterInterface::getBatchInfo()
    */
   public static function getBatchInfo(array &$form_state) {
-    $file = $form_state['values']['file'];
+    $file = is_object($form_state['values']['file']) ? $form_state['values']['file'] : file_load($form_state['values']['file']);
     return array(
       'file' => $file,
       'pid_namespace' => $form_state['values']['namespace'],
@@ -145,7 +145,7 @@ class BinaryObjectZipBatchImportObject extends ZipBatchImportObject {
    * @see IslandoraImportObject::getDatastreams()
    */
   protected function getDatastreams(&$errors = NULL, &$files = NULL) {
-    $to_return = parent::getDatastreams($errors, $files);
+    $to_return = array();
     $default_scheme = file_default_scheme() . "://";
     module_load_include('inc', 'islandora', 'includes/utilities');
 
@@ -184,8 +184,8 @@ class BinaryObjectZipBatchImportObject extends ZipBatchImportObject {
       $zip = new ZipArchive();
       $zip->open(drupal_realpath($this->source['file']->uri));
       if ($stream = $zip->getStream($name)) {
-        $path = $default_scheme . basename($name);
-        $file = islandora_temp_file_entry($path, $mimetype);
+        $uri = file_unmanaged_save_data($stream, $default_scheme . basename($name));
+        $file = islandora_temp_file_entry($uri, $mimetype);
         $files[] = $file;
 
         $to_return += array(
@@ -208,6 +208,29 @@ class BinaryObjectZipBatchImportObject extends ZipBatchImportObject {
       $datastream['label'] = $this->getLabel($datastream['dsid'], $datastream);
     }
 
+    // See if the user uploaded DC, if not create it now.
+    if (!isset($to_return['DC'])) {
+      $obtained_dc = $this->getDC();
+      if ($obtained_dc) {
+        $uri = file_unmanaged_save_data($obtained_dc, $default_scheme . basename($name));
+        $dc_file = islandora_temp_file_entry($uri, 'application/xml');
+        $files[] = $dc_file;
+        $to_return['DC'] = array(
+          'dsid' => 'DC',
+          'label' => 'DC Record',
+          'mimetype' => 'application/xml',
+          'control_group' => 'X',
+          'datastream_file' => file_create_url($dc_file->uri),
+          'file' => $dc_file,
+        );
+      }
+      else {
+        $errors[] = array(
+          t('Failed to produce DC record for @pid.'),
+        );
+      }
+    }
     return $to_return;
   }
+
 }
