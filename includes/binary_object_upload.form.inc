@@ -156,4 +156,20 @@ function islandora_binary_object_upload_form_submit(array $form, array &$form_st
             $tn->mimetype = $thumbnail_file->filemime;
         }
     }
+    if ($form_state['values']['supply_supplemental']) {
+        $supplemental_file = file_load($form_state['values']['supplemental_file']);
+        if (empty($object['SUPPLEMENT'])) {
+            $supplement = $object->constructDatastream('SUPPLEMENT', 'M');
+            $object->ingestDatastream($supplement);
+        } else {
+            $supplement = $object['SUPPLEMENT'];
+        }
+        $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+        if ($supplement->label != $supplemental_file->filename) {
+            $supplement->label = $supplemental_file->filename;
+        }
+        if ($supplement->mimetype != $supplemental_file->filemime) {
+            $supplement->mimetype = $supplemental_file->filemime;
+        }
+    }
 }
