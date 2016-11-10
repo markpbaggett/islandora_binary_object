@@ -314,7 +314,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                                 'file_validate_size' => array($upload_size * 1024 * 1024),
                             ),
                         ),
-                        '#markup' => '<p>Need to upload more files? Contact the <a href="">Trace Administrator</a>.',
+                        '#markup' => t('<p>Need to upload more files? Contact the <a href="mailto:">Trace Administrator</a>.'),
                         '#type' => 'item',
                         '#states' => array(
                             'visible' => array('#edit-supply-more-supplementals3' => array('checked' => TRUE)),
@@ -399,33 +399,37 @@ function islandora_binary_object_upload_form_submit(array $form, array &$form_st
         }
     }
     if ($form_state['values']['supply_supplemental']) {
-        $supplemental_file = file_load($form_state['values']['supplemental_file']);
-        $supplemental_file2 = file_load($form_state['values']['supplemental_file2']);
-        if (empty($object['SUPPLEMENT'])) {
-            $supplement = $object->constructDatastream('SUPPLEMENT', 'M');
-            $object->ingestDatastream($supplement);
-        } else {
-            $supplement = $object['SUPPLEMENT'];
+        if ($form_state['values']['supplemental_file']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file']);
+            if (empty($object['SUPPLEMENT'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
         }
-        $supplement->setContentFromFile($supplemental_file->uri, FALSE);
-        if ($supplement->label != $supplemental_file->filename) {
-            $supplement->label = $supplemental_file->filename;
-        }
-        if ($supplement->mimetype != $supplemental_file->filemime) {
-            $supplement->mimetype = $supplemental_file->filemime;
-        }
-        if (empty($object['SUPPLEMENT2'])) {
-            $supplement = $object->constructDatastream('SUPPLEMENT2', 'M');
-            $object->ingestDatastream($supplement);
-        } else {
-            $supplement = $object['SUPPLEMENT2'];
-        }
-        $supplement->setContentFromFile($supplemental_file2->uri, FALSE);
-        if ($supplement->label != $supplemental_file2->filename) {
-            $supplement->label = $supplemental_file2->filename;
-        }
-        if ($supplement->mimetype != $supplemental_file2->filemime) {
-            $supplement->mimetype = $supplemental_file2->filemime;
+        if ($form_state['values']['supplemental_file2']) {
+            $supplemental_file2 = file_load($form_state['values']['supplemental_file2']);
+            if (empty($object['SUPPLEMENT2'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT2', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT2'];
+            }
+            $supplement->setContentFromFile($supplemental_file2->uri, FALSE);
+            if ($supplement->label != $supplemental_file2->filename) {
+                $supplement->label = $supplemental_file2->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file2->filemime) {
+                $supplement->mimetype = $supplemental_file2->filemime;
+            }
         }
     }
 }
