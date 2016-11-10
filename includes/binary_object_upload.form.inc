@@ -314,6 +314,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                                 'file_validate_size' => array($upload_size * 1024 * 1024),
                             ),
                         ),
+                        '#markup' => '<p>Need to upload more files? Contact the <a href="">Trace Administrator</a>.',
                         '#type' => 'item',
                         '#states' => array(
                             'visible' => array('#edit-supply-more-supplementals3' => array('checked' => TRUE)),
