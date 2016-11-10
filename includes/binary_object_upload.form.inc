@@ -146,7 +146,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                     '#title' => t('Supplemental File 7'),
                     '#type' => 'managed_file',
                     '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                    '#default_value' => isset($form_state['values']['supplemental_file']) ? $form_state['values']['supplemental_file2'] : NULL,
+                    '#default_value' => isset($form_state['values']['supplemental_file7']) ? $form_state['values']['supplemental_file7'] : NULL,
                     '#upload_location' => 'temporary://',
                     '#upload_validators' => array(
                         'file_validate_extensions' => array(),
@@ -157,7 +157,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                     '#title' => t('Supplemental File 8'),
                     '#type' => 'managed_file',
                     '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                    '#default_value' => isset($form_state['values']['supplemental_file3']) ? $form_state['values']['supplemental_file3'] : NULL,
+                    '#default_value' => isset($form_state['values']['supplemental_file8']) ? $form_state['values']['supplemental_file8'] : NULL,
                     '#upload_location' => 'temporary://',
                     '#upload_validators' => array(
                         'file_validate_extensions' => array(),
@@ -168,7 +168,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                     '#title' => t('Supplemental File 9'),
                     '#type' => 'managed_file',
                     '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                    '#default_value' => isset($form_state['values']['supplemental_file4']) ? $form_state['values']['supplemental_file4'] : NULL,
+                    '#default_value' => isset($form_state['values']['supplemental_file9']) ? $form_state['values']['supplemental_file9'] : NULL,
                     '#upload_location' => 'temporary://',
                     '#upload_validators' => array(
                         'file_validate_extensions' => array(),
@@ -179,7 +179,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                     '#title' => t('Supplemental File 10'),
                     '#type' => 'managed_file',
                     '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                    '#default_value' => isset($form_state['values']['supplemental_file5']) ? $form_state['values']['supplemental_file5'] : NULL,
+                    '#default_value' => isset($form_state['values']['supplemental_file10']) ? $form_state['values']['supplemental_file10'] : NULL,
                     '#upload_location' => 'temporary://',
                     '#upload_validators' => array(
                         'file_validate_extensions' => array(),
@@ -199,7 +199,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                         '#title' => t('Supplemental File 11'),
                         '#type' => 'managed_file',
                         '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                        '#default_value' => isset($form_state['values']['supplemental_file6']) ? $form_state['values']['supplemental_file6'] : NULL,
+                        '#default_value' => isset($form_state['values']['supplemental_file11']) ? $form_state['values']['supplemental_file11'] : NULL,
                         '#upload_location' => 'temporary://',
                         '#upload_validators' => array(
                             'file_validate_extensions' => array(),
@@ -210,7 +210,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                         '#title' => t('Supplemental File 12'),
                         '#type' => 'managed_file',
                         '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                        '#default_value' => isset($form_state['values']['supplemental_file']) ? $form_state['values']['supplemental_file2'] : NULL,
+                        '#default_value' => isset($form_state['values']['supplemental_file12']) ? $form_state['values']['supplemental_file12'] : NULL,
                         '#upload_location' => 'temporary://',
                         '#upload_validators' => array(
                             'file_validate_extensions' => array(),
@@ -221,7 +221,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                         '#title' => t('Supplemental File 13'),
                         '#type' => 'managed_file',
                         '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                        '#default_value' => isset($form_state['values']['supplemental_file3']) ? $form_state['values']['supplemental_file3'] : NULL,
+                        '#default_value' => isset($form_state['values']['supplemental_file13']) ? $form_state['values']['supplemental_file13'] : NULL,
                         '#upload_location' => 'temporary://',
                         '#upload_validators' => array(
                             'file_validate_extensions' => array(),
@@ -232,7 +232,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                         '#title' => t('Supplemental File 14'),
                         '#type' => 'managed_file',
                         '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                        '#default_value' => isset($form_state['values']['supplemental_file4']) ? $form_state['values']['supplemental_file4'] : NULL,
+                        '#default_value' => isset($form_state['values']['supplemental_file14']) ? $form_state['values']['supplemental_file14'] : NULL,
                         '#upload_location' => 'temporary://',
                         '#upload_validators' => array(
                             'file_validate_extensions' => array(),
@@ -243,7 +243,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                         '#title' => t('Supplemental File 15'),
                         '#type' => 'managed_file',
                         '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                        '#default_value' => isset($form_state['values']['supplemental_file5']) ? $form_state['values']['supplemental_file5'] : NULL,
+                        '#default_value' => isset($form_state['values']['supplemental_file15']) ? $form_state['values']['supplemental_file15'] : NULL,
                         '#upload_location' => 'temporary://',
                         '#upload_validators' => array(
                             'file_validate_extensions' => array(),
@@ -263,7 +263,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                             '#title' => t('Supplemental File 16'),
                             '#type' => 'managed_file',
                             '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                            '#default_value' => isset($form_state['values']['supplemental_file6']) ? $form_state['values']['supplemental_file6'] : NULL,
+                            '#default_value' => isset($form_state['values']['supplemental_file16']) ? $form_state['values']['supplemental_file16'] : NULL,
                             '#upload_location' => 'temporary://',
                             '#upload_validators' => array(
                                 'file_validate_extensions' => array(),
@@ -274,7 +274,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                             '#title' => t('Supplemental File 17'),
                             '#type' => 'managed_file',
                             '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                            '#default_value' => isset($form_state['values']['supplemental_file']) ? $form_state['values']['supplemental_file2'] : NULL,
+                            '#default_value' => isset($form_state['values']['supplemental_file17']) ? $form_state['values']['supplemental_file17'] : NULL,
                             '#upload_location' => 'temporary://',
                             '#upload_validators' => array(
                                 'file_validate_extensions' => array(),
@@ -285,7 +285,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                             '#title' => t('Supplemental File 18'),
                             '#type' => 'managed_file',
                             '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                            '#default_value' => isset($form_state['values']['supplemental_file3']) ? $form_state['values']['supplemental_file3'] : NULL,
+                            '#default_value' => isset($form_state['values']['supplemental_file18']) ? $form_state['values']['supplemental_file18'] : NULL,
                             '#upload_location' => 'temporary://',
                             '#upload_validators' => array(
                                 'file_validate_extensions' => array(),
@@ -296,7 +296,7 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                             '#title' => t('Supplemental File 19'),
                             '#type' => 'managed_file',
                             '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                            '#default_value' => isset($form_state['values']['supplemental_file4']) ? $form_state['values']['supplemental_file4'] : NULL,
+                            '#default_value' => isset($form_state['values']['supplemental_file19']) ? $form_state['values']['supplemental_file19'] : NULL,
                             '#upload_location' => 'temporary://',
                             '#upload_validators' => array(
                                 'file_validate_extensions' => array(),
@@ -307,17 +307,20 @@ function islandora_binary_object_upload_form(array $form, array &$form_state)
                             '#title' => t('Supplemental File 20'),
                             '#type' => 'managed_file',
                             '#description' => t('Select a file to upload.<br/>Files must be less than <strong>@size MB.</strong>', array('@size' => $upload_size)),
-                            '#default_value' => isset($form_state['values']['supplemental_file5']) ? $form_state['values']['supplemental_file5'] : NULL,
+                            '#default_value' => isset($form_state['values']['supplemental_file20']) ? $form_state['values']['supplemental_file20'] : NULL,
                             '#upload_location' => 'temporary://',
                             '#upload_validators' => array(
                                 'file_validate_extensions' => array(),
                                 'file_validate_size' => array($upload_size * 1024 * 1024),
                             ),
                         ),
-                        '#markup' => t('<p>Need to upload more files? Contact the <a href="mailto:">Trace Administrator</a>.'),
                         '#type' => 'item',
                         '#states' => array(
                             'visible' => array('#edit-supply-more-supplementals3' => array('checked' => TRUE)),
+                        ),
+                        'supply_more_supplementals4' => array(
+                            '#title' => t('Upload More Supplemental Files'),
+                            '#markup' => t('<p>Need to upload more files? Contact the <a href="mailto:">Trace Administrator</a>.'),
                         ),
 
                     ),
@@ -429,6 +432,300 @@ function islandora_binary_object_upload_form_submit(array $form, array &$form_st
             }
             if ($supplement->mimetype != $supplemental_file2->filemime) {
                 $supplement->mimetype = $supplemental_file2->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file3']) {
+            $supplemental_file3 = file_load($form_state['values']['supplemental_file3']);
+            if (empty($object['SUPPLEMENT3'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT3', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT3'];
+            }
+            $supplement->setContentFromFile($supplemental_file3->uri, FALSE);
+            if ($supplement->label != $supplemental_file3->filename) {
+                $supplement->label = $supplemental_file3->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file3->filemime) {
+                $supplement->mimetype = $supplemental_file3->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file4']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file4']);
+            if (empty($object['SUPPLEMENT4'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT4', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT4'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file5']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file5']);
+            if (empty($object['SUPPLEMENT5'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT5', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT5'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+    }
+    if ($form_state['values']['supply_more_supplementals']) {
+        if ($form_state['values']['supplemental_file6']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file6']);
+            if (empty($object['SUPPLEMENT6'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT6', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT6'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file7']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file7']);
+            if (empty($object['SUPPLEMENT7'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT7', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT7'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file2->filemime) {
+                $supplement->mimetype = $supplemental_file2->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file8']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file8']);
+            if (empty($object['SUPPLEMENT8'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT8', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT8'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file9']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file9']);
+            if (empty($object['SUPPLEMENT9'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT9', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT4'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file10']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file10']);
+            if (empty($object['SUPPLEMENT10'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT10', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT5'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+    }
+    if ($form_state['values']['supply_more_supplementals2']) {
+        if ($form_state['values']['supplemental_file11']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file11']);
+            if (empty($object['SUPPLEMENT11'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT11', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT11'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file12']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file12']);
+            if (empty($object['SUPPLEMENT12'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT12', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT12'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file13']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file13']);
+            if (empty($object['SUPPLEMENT13'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT13', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT13'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file14']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file14']);
+            if (empty($object['SUPPLEMENT14'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT14', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT14'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file15']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file15']);
+            if (empty($object['SUPPLEMENT15'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT15', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT15'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+    }
+    if ($form_state['values']['supply_more_supplementals3']) {
+        if ($form_state['values']['supplemental_file16']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file16']);
+            if (empty($object['SUPPLEMENT16'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT16', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT16'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file17']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file17']);
+            if (empty($object['SUPPLEMENT17'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT17', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT17'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file18']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file18']);
+            if (empty($object['SUPPLEMENT18'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT18', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT18'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file19']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file19']);
+            if (empty($object['SUPPLEMENT19'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT19', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT19'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
+            }
+        }
+        if ($form_state['values']['supplemental_file20']) {
+            $supplemental_file = file_load($form_state['values']['supplemental_file20']);
+            if (empty($object['SUPPLEMENT20'])) {
+                $supplement = $object->constructDatastream('SUPPLEMENT20', 'M');
+                $object->ingestDatastream($supplement);
+            } else {
+                $supplement = $object['SUPPLEMENT20'];
+            }
+            $supplement->setContentFromFile($supplemental_file->uri, FALSE);
+            if ($supplement->label != $supplemental_file->filename) {
+                $supplement->label = $supplemental_file->filename;
+            }
+            if ($supplement->mimetype != $supplemental_file->filemime) {
+                $supplement->mimetype = $supplemental_file->filemime;
             }
         }
     }
