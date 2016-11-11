@@ -17,7 +17,6 @@
  * @see theme_islandora_binary_object()
  */
 ?>
-
 <div class="islandora-binary-object-object islandora">
   <div class="islandora-binary-object-content-wrapper clearfix">
     <?php if (isset($islandora_binary_object_info)): ?>
@@ -31,6 +30,69 @@
     <?php if (isset($islandora_binary_object_download)): ?>
       <?php print $islandora_binary_object_download; ?>
     <?php endif; ?>
+      <?php if (isset($islandora_supplement_download)): ?>
+          <?php print $islandora_supplement_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement2_download)): ?>
+          <?php print $islandora_supplement2_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement3_download)): ?>
+          <?php print $islandora_supplement3_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement3_download)): ?>
+          <?php print $islandora_supplement3_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement4_download)): ?>
+          <?php print $islandora_supplement4_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement5_download)): ?>
+          <?php print $islandora_supplement5_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement6_download)): ?>
+          <?php print $islandora_supplement6_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement7_download)): ?>
+          <?php print $islandora_supplement7_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement8_download)): ?>
+          <?php print $islandora_supplement8_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement9_download)): ?>
+          <?php print $islandora_supplement9_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement10_download)): ?>
+          <?php print $islandora_supplement10_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement11_download)): ?>
+          <?php print $islandora_supplement11_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement12_download)): ?>
+          <?php print $islandora_supplement12_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement13_download)): ?>
+          <?php print $islandora_supplement13_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement14_download)): ?>
+          <?php print $islandora_supplement14_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement15_download)): ?>
+          <?php print $islandora_supplement15_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement16_download)): ?>
+          <?php print $islandora_supplement16_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement17_download)): ?>
+          <?php print $islandora_supplement17_download; ?>
+      <?php endif; ?>
+    <?php if (isset($islandora_supplement18_download)): ?>
+        <?php print $islandora_supplement18_download; ?>
+    <?php endif; ?>
+      <?php if (isset($islandora_supplement19_download)): ?>
+          <?php print $islandora_supplement19_download; ?>
+      <?php endif; ?>
+      <?php if (isset($islandora_supplement20_download)): ?>
+          <?php print $islandora_supplement20_download; ?>
+      <?php endif; ?>
   </div>
   <div class="islandora-binary-object-metadata">
     <?php print $description; ?>
